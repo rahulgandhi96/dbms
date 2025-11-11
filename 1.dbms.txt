@@ -1,0 +1,55 @@
+CREATE DATABASE IF NOT EXISTS CollegeDB;
+USE CollegeDB;
+
+DROP TABLE IF EXISTS Students;
+CREATE TABLE Students (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30) NOT NULL,
+    marks INT CHECK (marks BETWEEN 0 AND 100),
+    email VARCHAR(50) UNIQUE
+);
+
+INSERT INTO Students (name, marks, email) VALUES
+('Amit', 85, 'amit@gmail.com'),
+('Riya', 92, 'riya@gmail.com'),
+('Raj', 76, 'raj@gmail.com');
+
+CREATE INDEX idx_name ON Students(name);
+
+CREATE VIEW student_view AS
+SELECT name, marks FROM Students;
+
+CREATE VIEW stu AS
+SELECT * FROM Students;
+
+SELECT * FROM student_view;
+SELECT * FROM stu;
+
+
+Aim : To write SQL DDL statements to create and manage database objects like Table, View, Index, Sequence, and Synonym, and to apply constraints such as Primary Key, Unique, Not Null, and Check.
+
+📘 Theory:
+
+DDL (Data Definition Language) is used to create and modify the structure of a database.
+It includes commands like CREATE, ALTER, and DROP.
+
+Table: Stores data in rows and columns.
+
+Constraints: Rules like Primary Key, Unique, Not Null, Check to keep data correct.
+
+Index: Makes searching faster.
+
+View: Virtual table made from a SELECT query.
+
+Sequence: Generates numbers automatically (used for IDs).
+
+Synonym: Shortcut name for a table or object.
+
+DDL helps to define and organize the database properly.
+
+✅ Conclusion:
+
+We learned how to use DDL commands to create and manage database objects.
+We created a table with constraints, added an index, and made views.
+This practical helped us understand how to design the structure of a database and keep data accurate and easy to access.
+

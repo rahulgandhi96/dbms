@@ -1,0 +1,36 @@
+MongoDB is a NoSQL database that stores data in the form of documents. It provides powerful tools for data processing, especially the Aggregation Framework and Indexing.
+
+Aggregation in MongoDB:
+Aggregation is a process used to analyze and transform documents in a collection. It works like the GROUP BY clause in SQL. MongoDB provides the aggregate() method, which uses different operators to perform operations such as sum, average, minimum, maximum and more.
+Common Aggregation Operators
+
+$sum – Adds numeric values in a group
+$avg – Calculates average
+$min – Finds minimum value
+$max – Finds maximum value
+$first – Returns first document value
+$last – Returns last document value
+$push – Stores values in an array
+$addToSet – Stores only unique values
+$count (using $sum:1) – Counts number of documents
+
+Indexing in MongoDB:Indexing improves the performance of queries. Without indexes, MongoDB must scan every document in a collection to find matching data. This is slow for large collections.
+An index stores a smaller, sorted structure of selected fields, which makes searching faster. It works like the index of a book, where topics are listed alphabetically for quick lookup.
+
+Types of Indexes Used
+
+Single Field Index
+Example:
+db.website1.createIndex({ name: 1 })
+
+Descending Index
+Example:
+db.website1.createIndex({ name: -1 })
+
+Compound Index
+Example:
+db.website1.createIndex({ name: 1, r: -1 })
+
+
+conclusion:Aggregation helps in analyzing and summarizing data stored in collections. It allows grouping and mathematical operations such as sum, average and count.
+Indexing improves the speed and efficiency of database queries. It organizes data in a sorted structure, making searches faster.

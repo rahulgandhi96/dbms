@@ -1,0 +1,81 @@
+DELIMITER //
+
+CREATE PROCEDURE factorial_calc(IN input_num INT)
+BEGIN
+    DECLARE v_factorial BIGINT DEFAULT 1;
+    DECLARE i INT DEFAULT 1;
+
+    -- Error handling for negative input
+    IF input_num < 0 THEN
+        SELECT CONCAT('Error: Number ', input_num, ' is negative. Factorial not defined.') AS Result;
+    ELSE
+        -- Loop to calculate factorial
+        WHILE i <= input_num DO
+            SET v_factorial = v_factorial * i;
+            SET i = i + 1;
+        END WHILE;
+        -- Display result
+        SELECT CONCAT('Factorial of ', input_num, ' = ', v_factorial) AS Result;
+    END IF;
+
+END;
+//
+
+DELIMITER ;
+
+-- Example calls
+CALL factorial_calc(10);
+CALL factorial_calc(-5);
+
+
+
+
+The given program calculates the factorial of a number using a stored procedure. It also checks for invalid input and handles the error by printing a message instead of performing the calculation.
+4-PL/SQL is the procedural approach to SQL in which a direct instruction is given to the
+
+PL/SQL engine about how to perform actions like storing/fetching/processing data. These instructions are grouped together called Blocks.
+
+Blocks contain both PL/SQL as well as SQL instruction. All these instruction will be executed as a whole rather than executing a single instruction at a time.
+
+Block Structure
+
+PL/SQL blocks have a pre-defined structure in which the code is to be grouped.
+
+Beloware different sections of PL/SQL blocks
+
+1. Declaration section
+2. Execution section
+3. Exception-Handling section
+
+Declaration Section:
+This is the first section of the PL/SQL blocks. This section is an optional part. This is the section in which the declaration of variables, cursors, exceptions, subprograms, instructions and collections that are needed in the block will be declared,
+
+Below are few more characteristics of this part.
+
+This particular section is optional and can be skipped if no declarations are needed. This should be the first section in a PL/SQL block, if present.
+
+This section starts with the keyword 'DECLARE' for triggers and anonymous block. For other subprograms this keyword will not be present, instead the part after the subprogram name definition marks the declaration section.
+
+This section should be always followed by execution section.
+
+Execution Section:
+Execution part is the main and mandatory part which actually executes the code that is written inside it. Since the PL/SQL expects the executable statements from this block this cannot be an empty block, i.e., it should have at least one valid executable code line in it.
+Below are few more characteristics of this part.
+This can contain both PL/SQL code and SQL code.
+
+This can contain one or many blocks inside it as nested blocks. This section starts with the keyword 'BEGIN.
+
+This section should be followed either by 'END' or Exception-Handling section(ifpresent)
+
+Exception-Handling Section:
+The exception is unavoidable in the program which occurs at run-time and to handle this Oracle has provided an Exception-handling section in blocks. This section can also contain PL/SQL statements. This is an optional section of the PL/SQL blocks.
+
+This is the section where the exception raised in the execution block ishandled.
+
+This section is the last part of the PL/SQL block.
+
+Control from this section can never return to the execution block
+
+This section starts with the keyword 'EXCEPTION'.
+
+This section should be always followed by the keyword 'END'.
