@@ -41,4 +41,44 @@ END;
 DELIMITER ;
 
 CALL proc_factorial(5);
+
 SELECT func_factorial(6) AS FactorialResult;
+
+
+theory--------------------------------------------------------------------
+
+Title:
+Factorial Calculation using Stored Procedure and Function in MySQL
+In MySQL, stored procedures and functions are reusable SQL code blocks that can perform specific operations.
+A stored procedure is used to execute one or more SQL statements and can return data using SELECT.
+A function returns a single value and can be called directly in SQL queries.
+The factorial of a number n (written as n!) is the product of all positive integers less than or equal to n.
+
+Example:
+5! = 1 × 2 × 3 × 4 × 5 = 120
+Factorials are defined only for non-negative integers.
+
+Algorithm / Logic:
+
+Start
+Declare variables:
+v_factorial to store the result (initialized to 1)
+i as a loop counter (initialized to 1)
+If the input number is negative:
+Display an error message (in procedure) or raise an error (in function).
+Otherwise, use a WHILE loop to multiply numbers from 1 to the input number.
+Display or return the factorial value.
+End
+
+Explanation:
+The procedure takes an integer input.
+If it’s negative, it displays an error message.
+Otherwise, it uses a WHILE loop to multiply numbers sequentially and displays the factorial result.
+
+Explanation:
+The function also calculates the factorial but returns the result instead of displaying it.
+SIGNAL SQLSTATE '45000' is used to throw an error for negative inputs.
+It is marked as DETERMINISTIC since it always produces the same output for the same input.
+
+Conclusion:
+This program successfully demonstrates how to use MySQL stored procedures and functions to calculate factorials. It also shows how to handle invalid input and return user-friendly messages or SQL errors for negative numbers.
